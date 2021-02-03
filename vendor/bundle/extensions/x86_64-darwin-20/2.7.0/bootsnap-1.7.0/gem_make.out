@@ -1,0 +1,15 @@
+current directory: /Users/ikebuchieito/cardchat/vendor/bundle/gems/bootsnap-1.7.0/ext/bootsnap
+/Users/ikebuchieito/.rbenv/versions/2.7.2/bin/ruby -I /Users/ikebuchieito/.rbenv/versions/2.7.2/lib/ruby/site_ruby/2.7.0 -r ./siteconf20210203-38399-ij52ty.rb extconf.rb
+creating Makefile
+
+current directory: /Users/ikebuchieito/cardchat/vendor/bundle/gems/bootsnap-1.7.0/ext/bootsnap
+make DESTDIR\= clean
+
+current directory: /Users/ikebuchieito/cardchat/vendor/bundle/gems/bootsnap-1.7.0/ext/bootsnap
+make DESTDIR\=
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+
+current directory: /Users/ikebuchieito/cardchat/vendor/bundle/gems/bootsnap-1.7.0/ext/bootsnap
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20210203-38399-syzelp/bootsnap
