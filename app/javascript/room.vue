@@ -27,7 +27,7 @@
 </template>
 
 <script>
-const API_KEY = "542adc7e-549c-4c63-90e0-28f2a2232703"; 
+const API_KEY = "2c059b1e-c304-4d63-90ba-5970acbf60aa"; 
 // const Peer = require('../skyway-js');
 console.log(Peer)
 export default {
