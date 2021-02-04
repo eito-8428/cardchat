@@ -1,54 +1,76 @@
-.pure-button-success,
-.pure-button-error,
-.pure-button-warning,
-.pure-button-secondary {
-    color: white;
-    border-radius: 4px;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-}
-.pure-button-success {
-    background: rgb(28, 184, 65); /* this is a green */
-}
-.pure-button-error {
-    background: rgb(202, 60, 60); /* this is a maroon */
-}
-.pure-button-warning {
-    background: rgb(223, 117, 20); /* this is an orange */
-}
-.pure-button-secondary {
-    background: rgb(66, 184, 221); /* this is a light blue */
+body { margin: 0; }
+
+/* global styles */
+video {
+  background-color: #111;
+  width: 100%;
 }
 
-
-
-
-
-*, *:before, *:after {
-    -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+.heading {
+  text-align: center;
+  margin-bottom: 0;
 }
 
-#my-video {
-    margin-top: 15px;
-    width: 280px;
-    height: auto;
-    background-color: #eee;
+.note {
+  text-align: center;
 }
 
-#their-video {
-    width: 100%;
-    height: 75%;
-    max-height: 480px;
-    background-color: #eee;
+.meta {
+  text-align: center;
+  font-size: .8rem;
+  color: gray;
 }
 
-#video-container {
-    padding: 25px;
-    text-align: center;
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 980px;
 }
 
-#step1-error, #step2, #step3 {
-    display: none;
+/* p2p-media styles */
+.p2p-media {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
-#my-id {
-    font-weight: bold;
+
+.p2p-media .remote-stream {
+  width: 50%;
+}
+
+.p2p-media .local-stream {
+  width: 30%;
+}
+
+/* p2p-data styles */
+.p2p-data {
+  display: grid;
+  grid-template-columns: 30% 1fr;
+  margin: 0 8px;
+}
+
+.p2p-data .messages {
+  background-color: #eee;
+  min-height: 100px;
+  padding: 8px;
+  margin-top: 0;
+}
+
+/* room */
+.room {
+  display: grid;
+  grid-template-columns: 30% 40% 30%;
+  gap: 8px;
+  margin: 0 8px;
+}
+
+.room .remote-streams {
+  background-color: #f6fbff;
+}
+
+.room .messages {
+  background-color: #eee;
+  min-height: 100px;
+  padding: 8px;
+  margin-top: 0;
 }
