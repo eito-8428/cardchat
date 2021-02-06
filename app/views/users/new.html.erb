@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-offset-4 col-md-4 users-new-container">
+        <h1 class="text-center text-white">Sign in</h1>
+        <%= form_for @user do |f| %>
+          <div>
+            <%= f.label :プロフィール画像 %>
+            <%= f.file_field :image %>
+          </div>
+          <div class="form-group">
+            <%= f.label :名前, class: 'sing-in-container' %>
+            <%= f.text_field :name, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :メールアドレス, class: 'sing-in-container' %>
+            <%= f.text_field :email, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :password, class: 'sing-in-container' %>
+            <%= f.password_field :password, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :password再入力, class: 'sing-in-container' %>
+            <%= f.password_field :password_confirmation, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :自己紹介, class: 'sing-in-container' %>
+            <%= f.text_area :introduction, class: 'form-control'%>
+          </div>
+          <%= f.submit "登録", class: 'btn-block btn-white' %>
+        <% end %>
+        <%= link_to 'ログインはこちら',  '#', class: 'sing-in-container' %>
+      </div>
+    </div>
+</div>

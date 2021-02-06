@@ -1,0 +1,28 @@
+<div class="community-content">
+    <div class="game-Category">
+      <div class="games">ゲームカテゴリー</div>
+        <%= link_to "/duelmasters/index" do %>  
+          <%= image_tag 'images/duelmasters.png', class:"game-image" %>
+          <span>デュエル・マスターズ </span>
+        <% end %>
+
+        <%= link_to "/yugiohs/index" do %>
+          <%= image_tag 'images/yugioh.png', class:"game-image" %>
+           <span>遊戯王 </span>
+        <% end %>
+
+        <%= link_to "/pokemons/index" do %>
+          <%= image_tag 'images/Pokemon.png', class:"game-image" %>
+          <span>ポケモン </span>
+        <% end %>
+
+        <%= link_to "/magics/index" do %>
+          <%= image_tag 'images/magic.png', class:"game-image" %>
+          <span>マジックギャザリー </span>
+        <% end %>
+    </div>  
+    <div class="play-user">
+        <div class ="play-user-vs">対戦プレイヤーを探そう！</div>
+　　        <%# 対戦できるユーザー表示ユーザーの情報を載せる %>
+    </div>
+</div>

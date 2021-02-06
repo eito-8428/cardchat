@@ -1,44 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SkyWay - Room example</title>
-    
-  </head>
-  <body>
-    <div class="container">
-      <h1 class="heading">Room example</h1>
-      <p class="note">
-        Change Room mode (before join in a room):
-        <a href="#">mesh</a> / <a href="#sfu">sfu</a>
-      </p>
-      <div class="room">
-        <div>
-          <video id="js-local-stream"></video>
-          <span id="js-room-mode"></span>:
-          <input type="text" placeholder="Room Name" id="js-room-id">
-          <button id="js-join-trigger">Join</button>
-          <button id="js-leave-trigger">Leave</button>
-        </div>
+     
+    <title>cardchat</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
-        <div class="remote-streams" id="js-remote-streams"></div>
-
-        <div>
-          <pre class="messages" id="js-messages"></pre>
-          <input type="text" id="js-local-text">
-          <button id="js-send-trigger">Send</button>
-        </div>
-      </div>
-      <p class="meta" id="js-meta"></p>
-    </div>
-    <script src="//cdn.webrtc.ecl.ntt.com/skyway-4.3.0.js"></script>
-    <script src="../_shared/key.js"></script>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_pack_tag 'script', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+  </head>
+  
+
+  <body>
+    <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
+    <% end %>
+          <nav class="navbar navbar-default navbar-fixed-top navbar-transparent">
+      <div class="container">
+        <%= link_to root_path do %>
+          <span><%= image_tag "icon/IMG_A72B91D920B2-1.png", class: "navbar-brand" %></span> 
+        <% end %>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+           <%= link_to "ログイン","#",class: 'btn  btn-white'%>
+          </li>
+          <li>
+            <%= link_to "ユーザー登録", new_user_path,class: "btn btn-white" %>
+          </li>
+          <li>
+           <%= link_to "マイルーム", "/rooms/show",class: 'btn  btn-white'%>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  
+
+    <%= yield %>
+    <script>
+      $(function(){
+        $(".alert").fadeOut(4000);
+      });
+    </script>
   </body>
 </html>
-    
-
-
-    

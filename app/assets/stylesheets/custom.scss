@@ -1,3 +1,10 @@
+.room-content{
+  margin-left: auto;
+  margin-right: auto;
+  width: 980px;
+  padding-top: 80px
+}
+
 body { margin: 0; }
 
 /* global styles */
@@ -59,7 +66,7 @@ video {
 /* room */
 .room {
   display: grid;
-  grid-template-columns: 30% 40% 30%;
+  grid-template-columns: 50% 50% ;
   gap: 8px;
   margin: 0 8px;
 }
@@ -74,3 +81,121 @@ video {
   padding: 8px;
   margin-top: 0;
 }
+
+h1, h2 {
+    font-weight: 100;
+  }
+
+  .text-white {
+    color: rgb(70, 58, 58);
+    text-align: left;
+    margin-left: 100px;
+    margin-top: 90px;
+  }
+  .sing-in-container {
+    margin-top: 5px;
+  }
+  
+  .btn-white {
+    color:black;
+    border: 1px solid #111;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 20px;
+    background-color: rgba(0,0,0,0.0);
+  
+    &:hover {
+      color: #fff;
+    }
+  }
+  
+  .top-hero-wrapper {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('images/space.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #464646;
+  }
+  
+  .top-hero-container {
+    padding-top: 220px;
+    h1 {
+      font-size: px;
+      margin-bottom: 20px;
+    }
+  
+    h2 {
+      margin-bottom: 60px;
+    }
+  }
+  .form-control {
+    height: 45px;
+  }
+  
+  .users-new-wrapper {
+    width: 100vw;
+    height: 100vh;
+    background-image: image-url('images/space.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #464646;
+  
+    .users-new-container {
+      padding-top: 220px;
+  
+      .form-group {
+        margin-bottom: 10px;
+      }
+    }
+  }
+  
+  .alert {
+    margin-bottom: 0px;
+    position: fixed;
+    width: 100%;
+    z-index: 10000;
+  }
+
+  .navbar-transparent {
+    margin-bottom: 0px;
+
+    a {
+      color:black !important;
+    }
+  
+    .navbar-brand {
+      height: 60px;
+      width: 120px;
+      padding: 0px;
+    }
+  
+    img {
+      height: 40px;
+    }
+  }
+  
+  .c{
+    height: 500px;
+    width : 150%;
+  }
+  .game-image{
+    border-radius: 50%;
+    width:  90x;
+    height: 90px;
+    border: 1px gray solid;
+    text-align:center
+  }
+
+  .content {
+    width: 980px;
+    padding-top: 50px
+  } 
+  .community-content {
+  padding-top: 80px
+  }   
+

@@ -12,7 +12,28 @@ const Peer = window.Peer;
   const messages = document.getElementById('js-messages');
   const meta = document.getElementById('js-meta');
   const sdkSrc = document.querySelector('script[src*=skyway]');
+  const toggleCamera = document.getElementById('js-toggle-camera');
+  const toggleMicrophone = document.getElementById('js-toggle-microphone');
+  const cameraStatus = document.getElementById('camera-status');
+  const microphoneStatus = document.getElementById('microphone-status');
+  
 
+
+
+
+  
+  toggleCamera.addEventListener('click', () => {
+    const videoTracks = localStream.getVideoTracks()[0];
+    videoTracks.enabled = !videoTracks.enabled;
+    cameraStatus.textContent = `${videoTracks.enabled ? 'ON' : 'OFF'}`;
+  });
+  
+  toggleMicrophone.addEventListener('click', () => {
+    const audioTracks = localStream.getAudioTracks()[0];
+    audioTracks.enabled = !audioTracks.enabled;
+    microphoneStatus.textContent = `${audioTracks.enabled ? 'ON' : 'OFF'}`;
+  });
+  
   meta.innerText = `
     UA: ${navigator.userAgent}
     SDK: ${sdkSrc ? sdkSrc.src : 'unknown'}
@@ -25,6 +46,7 @@ const Peer = window.Peer;
     'hashchange',
     () => (roomMode.textContent = getRoomModeByHash())
   );
+  
 
   const localStream = await navigator.mediaDevices
     .getUserMedia({
@@ -52,6 +74,8 @@ const Peer = window.Peer;
     if (!peer.open) {
       return;
     }
+
+    
 
     const room = peer.joinRoom(roomId.value, {
       mode: getRoomModeByHash(),
@@ -92,6 +116,7 @@ const Peer = window.Peer;
 
       messages.textContent += `=== ${peerId} left ===\n`;
     });
+    
 
     // for closing myself
     room.once('close', () => {
@@ -115,6 +140,11 @@ const Peer = window.Peer;
       localText.value = '';
     }
   });
+  
+  
 
   peer.on('error', console.error);
 })();
+
+
+
