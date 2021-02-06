@@ -29,10 +29,10 @@
         <% end %>
         <ul class="nav navbar-nav navbar-right">
           <li>
-           <%= link_to "ログイン","#",class: 'btn  btn-white'%>
+           <%= link_to "ログイン", login_path ,class: 'btn  btn-white'%>
           </li>
           <li>
-            <%= link_to "ユーザー登録", new_user_path,class: "btn btn-white" %>
+            <%= link_to "ユーザー登録","/users/new",class: "btn btn-white" %>
           </li>
           <li>
            <%= link_to "マイルーム", "/rooms/show",class: 'btn  btn-white'%>
