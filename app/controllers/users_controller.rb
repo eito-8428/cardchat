@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :login_check, only: [:show, :edit, :update, :destroy, :following, :followers]
+  before_action :login_check, only: [:show, :edit, :update, :destroy]
   
   def index
     @users = User.all
@@ -35,11 +35,7 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :image, :introduction)
   end
-  
-  private
-  def radio_params
-    params.require(:radio).permit(:audio,:title,:description)
-  end
+
 
 end
 

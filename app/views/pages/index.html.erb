@@ -1,5 +1,7 @@
+
       <div class="content">
       <div class="a">
+        <div class="s-img"><%= image_tag 'images/tree.png',class:"c" %></div>
         <div class="s-img"><%= image_tag 'images/tree.png',class:"c" %></div>
       </div>
       <div class="game-Category">
@@ -35,13 +37,11 @@
     </div>
   </div>
 
-    <script>
+   <script>
       $(function() {
-          $('.a').slick({
-              dots: true,
-              autoplay: true,
-              autoplaySpeed: 1000,
-          });
+         $('.a').slick({
+        dots: true,
+        });
       });
     </script>
   </div>
