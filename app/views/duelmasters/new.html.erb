@@ -1,0 +1,30 @@
+<div class="topic-new-wrapper" >
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <h1 class="text-center">デュエル・マスターズ</h1>
+        <%= form_for  @duelmaster do |f| %>
+          <div class="form-group">
+
+           <%= f.label :created_at, '日付', class: 'control-label' %>
+           <%= f.date_field :schedule, class: 'form-control' %>
+
+           <%= f.label :created_at, '時間', class: 'control-label'%>
+           <%= f.time_field :time, class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :description %>
+            <%= f.text_area :description, class: 'form-control' %>
+          </div>
+　        <% if logged_in? %>
+           <%= f.submit '投稿', class: 'btn btn-black btn-block' %>
+           <% end %>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

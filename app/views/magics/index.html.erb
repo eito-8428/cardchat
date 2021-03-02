@@ -1,6 +1,6 @@
 <div class="community-content">
-    <div class="game-Category">
-      <div class="games">ゲームカテゴリー</div>
+    <div class="games">ゲームカテゴリー</div>
+      <div class="game-Category">
         <%= link_to "/duelmasters/index" do %>  
           <%= image_tag 'images/duelmasters.png', class:"game-image" %>
           <span>デュエル・マスターズ </span>
@@ -21,8 +21,38 @@
           <span>マジックギャザリー </span>
         <% end %>
     </div>  
-    <div class="play-user">
-        <div class ="play-user-vs">対戦プレイヤーを探そう！</div>
+            <%= link_to "投稿", "/magics/new" ,class: 'btn  btn-white'%>
+            <div class ="play-user-vs">対戦プレイヤーを探そう！</div>
 　　        <%# 対戦できるユーザー表示ユーザーの情報を載せる %>
-    </div>
+      <div class = "post-user-content">
+        <% @magics.each do |magic| %>
+          <div class = "post-user">
+            <%= link_to user_path(magic.user_id) do %>
+              <% if magic.user.image? %>
+                <%= image_tag magic.user.image.url,class:"icon-image" %>
+              <% end %>
+            <% end %>
+              <div class="user-post-name">
+                <%= magic.user.name%>
+              </div>
+
+              <div class="user-post-schedule">
+                <%= magic.schedule %>
+              </div>
+
+              <div class="user-post-time">
+                <%= magic.time %>
+              </div>
+
+              <div class="user-post-description">
+                <%= magic.description %>
+              </div>
+              <% if magic.user == current_user %>
+              <%= link_to magic_path(magic), method: :delete ,data: {confirm: "本当にいいですか？"} do %>
+              <i class="far fa-trash-alt fa-2x"></i>
+              <% end %>
+              <% end %>
+          </div>
+        <% end %>
+      </div>
 </div>

@@ -5,6 +5,8 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :email
       t.string :image
       t.text :introduction
+      t.string :category
+
       t.timestamps
     end
   end

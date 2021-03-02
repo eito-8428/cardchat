@@ -27,6 +27,10 @@
             <%= f.label :自己紹介, class: 'sing-in-container' %>
             <%= f.text_area :introduction, class: 'form-control'%>
           </div>
+　　　　　　<div class="form-group">
+           <%= f.label :得意なゲーム, class: 'sing-in-container' %>
+           <%= f.select :category, ['デュエル・マスターズ', '遊戯王', 'ポケモン','マジックギャザリー'], {include_blank: '選択ボックス'}, class: 'form-control' %>
+          </div>
           <%= f.submit "登録", class: 'btn-block btn-white' %>
         <% end %>
         <%= link_to 'ログインはこちら',  login_path , class: 'sing-in-container' %>

@@ -9,10 +9,8 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+require("./rails-ujs.js");
 
 
-$(function(){
-    $(".alert").fadeOut(4000);
-  });
 
 

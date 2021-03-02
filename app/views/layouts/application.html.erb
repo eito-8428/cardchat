@@ -7,7 +7,7 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application'%>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
@@ -27,21 +27,34 @@
         <%= link_to root_path do %>
           <span><%= image_tag "icon/IMG_A72B91D920B2-1.png", class: "navbar-brand" %></span> 
         <% end %>
+
         <ul class="nav navbar-nav navbar-right">
+        <% unless logged_in? %>
           <li>
            <%= link_to "ログイン", login_path ,class: 'btn  btn-white'%>
           </li>
           <li>
             <%= link_to "ユーザー登録","/users/new",class: "btn btn-white" %>
           </li>
+        <% else %>
+          <li>
+          <%= link_to "ログアウト",logout_path, method: :delete ,class: 'btn  btn-white' %>
+          </li>
+          <li>
+          <%= link_to "マイページ",user_path(current_user.id),class: 'btn  btn-white' %>
+          </li>
+        <% end %>
           <li>
            <%= link_to "マイルーム", "/rooms/show",class: 'btn  btn-white'%>
           </li>
         </ul>
       </div>
     </nav>
-  
-
+    <script>
+    $(function(){
+    $(".alert").fadeOut(2500);
+     });
+    </script>
     <%= yield %>
   </body>
 </html>

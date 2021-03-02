@@ -1,0 +1,41 @@
+<div class="my-page">
+  <% if @user.image? %>
+    <%= image_tag @user.image.url,class:"my-image" %>
+  <% end %>
+  <div class="profile-name">
+    <%= @user.name %>
+  </div>
+  <div class="profile">自己紹介</div>
+    得意なゲーム
+    <%= @user.category %>
+  <div class="profile-introduction"><%= @user.introduction %></div>
+    <% if @user == current_user %>
+    <%= link_to edit_user_path(@user) , class: "btn btn-danger" do %>
+    <i class="far fa-edit "></i> プロフィールを編集
+    <% end %>
+      <% end %>
+         <div>
+      　　　<%= render 'follow_form' %>
+      　　　<%= render 'stats' %>
+        </div>
+        <%= link_to "通知", "/notifications/index" %>
+        
+<% if @user.id == current_user.id %>
+
+<% else %>
+  <% if @isChat == true %>
+    <p><a href="/chats/<%= @chatId %>">チャットへ</a>
+  <% else %>
+    <%= form_for @chat do |f| %>
+      <%= fields_for @entry do |e| %>
+        <%= e.hidden_field :user_id, :value=> @user.id %>
+      <% end %>
+      <%= f.submit "チャットを始める" %>
+    <% end %>
+  <% end %>
+<% end %>
+
+</div> 
+         
+         
+

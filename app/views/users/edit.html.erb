@@ -1,0 +1,27 @@
+ <div class="container">
+    <div class="row">
+      <div class="col-md-offset-4 col-md-4 users-new-container">
+        <div class="profile-edit">プロフィール編集</div>
+         <%= form_with model: current_user, url: user_path, local: true do |f| %>
+          <div>
+            <%= f.label :image %>
+            <%= f.file_field :image %>
+          </div>
+          <div class="form-group">
+            <%= f.label :name, class: 'sing-in-container' %>
+            <%= f.text_field :name, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :introduction, class: 'sing-in-container' %>
+            <%= f.text_area :introduction, class: 'form-control'%>
+          </div>
+          <div class="form-group">
+           <%= f.label :得意なゲーム, class: 'sing-in-container' %>
+           <%= f.select :category, ['デュエル・マスターズ', '遊戯王', 'ポケモン','マジックギャザリー'], {include_blank: '選択ボックス'}, class: 'form-control' %>
+          </div>
+            <%= f.submit "編集完了", class: "btn-block btn-white" %>
+          <% end %>
+      </div>
+    </div>
+  </div>
+

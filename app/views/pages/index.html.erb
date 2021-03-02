@@ -1,16 +1,17 @@
-
-      <div class="content">
-      <div class="a">
+    <div class="content">
+      <div class="slide-image">
+        <div class="s-img"><%= image_tag 'images/tree.png',class:"c" %></div>
         <div class="s-img"><%= image_tag 'images/tree.png',class:"c" %></div>
         <div class="s-img"><%= image_tag 'images/tree.png',class:"c" %></div>
       </div>
+      
+    <div class="games">ゲームカテゴリー</div>
       <div class="game-Category">
-      <div class="games">ゲームカテゴリー</div>
         <%= link_to "/duelmasters/index" do %>  
           <%= image_tag 'images/duelmasters.png', class:"game-image" %>
           <span>デュエル・マスターズ </span>
         <% end %>
-
+      
         <%= link_to "/yugiohs/index" do %>
           <%= image_tag 'images/yugioh.png', class:"game-image" %>
            <span>遊戯王 </span>
@@ -25,24 +26,48 @@
           <%= image_tag 'images/magic.png', class:"game-image" %>
           <span>マジックギャザリー </span>
         <% end %>
-
     </div>
     <div class="play-user">
-    <div class ="play-user-vs">対戦プレイヤーを探そう！</div>
-　　<%# 対戦できるユーザー表示ユーザーの情報を載せる %>
+      <div class ="play-user-vs">対戦プレイヤーを探そう！</div>
+　　<%# 対戦できるユーザー表示ユーザーの情報 %>
+      <div class = "post-user-content">
+        <% @users.each do |user| %>
+          <div class = "post-user">
+            <%= link_to user_path(user) do %>
+              <% if user.image? %>
+                <%= image_tag user.image.url,class:"icon-image" %>
+              <% end %>
+            <% end %>
+              <div class="user-post-name">
+                <%= user.name%>
+              </div>
+
+              <div class="user-post-description">
+                <%= user.introduction %>
+              </div> 
+              <div class="user-post-description">
+                得意なゲーム
+                <%= user.category %>
+              </div> 
+
+          </div>  
+        <% end %>
+      </div>
     </div>
-    <div class="user-Participation">
-    <div class ="user-list">参加ユーザー</div>
-　　<%# ユーザーの情報を載せる %>
-    </div>
+
+  <div class="paly-guide">
+    <div class="play-guide-title">遊び方</div>
+    <%= link_to "対戦方法", '/guide/index' %>
   </div>
 
    <script>
       $(function() {
-         $('.a').slick({
+    $('.slide-image').slick({
         dots: true,
-        });
+        autoplay: true,
+        autoplaySpeed: 2500,
+          });
       });
     </script>
-  </div>
+  
 </div>
