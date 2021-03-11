@@ -1,14 +1,11 @@
 <% if notification.checked == false %>
     <div>
-        <%= link_to chat_path(@chatId) do %>
+        <%= link_to room_path(@cahtId) do %>
             <%= visitor.name %>さん
         <% end %>
         <% if notification.action=='dm' %>
         があなた(<%= visited.name %>さん)にDMを送りました
         <% end %>
         <%= link_to '既読にする',notification_path(notification.id),method: :put %>
-        <%# ↑この1行！！ %>
     </div>
 <% end %>
-
-

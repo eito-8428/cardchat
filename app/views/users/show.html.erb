@@ -1,6 +1,8 @@
 <div class="my-page">
   <% if @user.image? %>
     <%= image_tag @user.image.url,class:"my-image" %>
+    <% else %>
+    <%=image_tag"default.png",class:"my-image" %>
   <% end %>
   <div class="profile-name">
     <%= @user.name %>
@@ -18,23 +20,20 @@
       　　　<%= render 'follow_form' %>
       　　　<%= render 'stats' %>
         </div>
-        <%= link_to "通知", "/notifications/index" %>
-        
-<% if @user.id == current_user.id %>
-
-<% else %>
-  <% if @isChat == true %>
-    <p><a href="/chats/<%= @chatId %>">チャットへ</a>
-  <% else %>
-    <%= form_for @chat do |f| %>
-      <%= fields_for @entry do |e| %>
-        <%= e.hidden_field :user_id, :value=> @user.id %>
-      <% end %>
-      <%= f.submit "チャットを始める" %>
-    <% end %>
-  <% end %>
-<% end %>
-
+        <% if @user.id == current_user.id %>
+          <%= link_to "DM", "/chats/" %>
+        <% else %>
+          <% if @isChat == true %>
+            <p><a href="/chats/<%= @chatId %>">チャットへ</a>
+          <% else %>
+            <%= form_for @chat do |f| %>
+              <%= fields_for @entry do |e| %>
+                <%= e.hidden_field :user_id, :value=> @user.id %>
+              <% end %>
+              <%= f.submit "チャットを始める" %>
+            <% end %>
+          <% end %>
+        <% end %>
 </div> 
          
          

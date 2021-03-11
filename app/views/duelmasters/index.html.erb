@@ -21,8 +21,12 @@
           <span>マジックギャザリー </span>
         <% end %>
       </div> 
-            <%= link_to "投稿", "/duelmasters/new" ,class: 'btn  btn-white'%>
-            <div class ="play-user-vs">対戦プレイヤーを探そう！</div>
+      <% if logged_in? %>
+        <div class="new-post">
+          <%= link_to "投稿", "/duelmasters/new" ,class: 'btn  btn-white'%>
+        </div>
+      <% end %>
+      <div class ="play-user-vs">対戦プレイヤーを探そう！</div>
 　　        <%# 対戦できるユーザー表示ユーザーの情報を載せる %>
       <div class = "post-user-content">
         <% @duelmasters.each do |duelmaster| %>
@@ -30,6 +34,8 @@
             <%= link_to user_path(duelmaster.user_id) do %>
               <% if duelmaster.user.image? %>
                 <%= image_tag duelmaster.user.image.url,class:"icon-image" %>
+              <% else %>
+                <%=image_tag"default.png",class:"icon-image" %>
               <% end %>
             <% end %>
               <div class="user-post-name">
@@ -46,11 +52,11 @@
 
               <div class="user-post-description">
                 <%= duelmaster.description %>
+                <% if duelmaster.user == current_user %>
+                <%= link_to duelmaster_path(duelmaster), method: :delete ,data: {confirm: "本当にいいですか？"} do %>
+                <i class="far fa-trash-alt "></i>
+                <% end %>
               </div>
-              <% if duelmaster.user == current_user %>
-              <%= link_to duelmaster_path(duelmaster), method: :delete ,data: {confirm: "本当にいいですか？"} do %>
-              <i class="far fa-trash-alt fa-2x"></i>
-              <% end %>
               <% end %>
           </div>
         <% end %>

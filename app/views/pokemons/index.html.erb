@@ -21,8 +21,12 @@
           <span>マジックギャザリー </span>
         <% end %>
     </div>  
-            <%= link_to "投稿", "/pokemons/new" ,class: 'btn  btn-white'%>
-            <div class ="play-user-vs">対戦プレイヤーを探そう！</div>
+    <% if logged_in? %>
+      <div class="new-post">
+         <%= link_to "投稿", "/pokemons/new" ,class: 'btn  btn-white'%>
+      </div>
+    <% end %>
+    <div class ="play-user-vs">対戦プレイヤーを探そう！</div>
 　　        <%# 対戦できるユーザー表示ユーザーの情報を載せる %>
       <div class = "post-user-content">
         <% @pokemons.each do |pokemon| %>
@@ -30,6 +34,8 @@
             <%= link_to user_path(pokemon.user_id) do %>
               <% if pokemon.user.image? %>
                 <%= image_tag pokemon.user.image.url,class:"icon-image" %>
+              <% else %>
+                <%=image_tag"default.png",class:"dm-image" %>
               <% end %>
             <% end %>
               <div class="user-post-name">

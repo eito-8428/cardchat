@@ -1,21 +1,26 @@
-<div class="topic-index-wrapper">
+<div class="follow-content">
   <div class="container">
     <% @user.followers.each do |user| %>
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
           <div class="topic-index-single">
-            　<div class ="profile-img">
+          <div class="follow-content">
             　  <%= link_to user_path(user)do  %>
                    <% if user.image? %>
-                     <%= image_tag user.image.url,class:"icon-image" %>
+                     <%= image_tag user.image.url,class:"follow-image" %>
                    <% else %>
-                        <%= image_tag 'images/icons/no_icon.png',class:"icon-image" %>
+                     <%=image_tag"default.png",class:"follow-image" %>
                    <% end %>
-                   <% end %>
+                <% end %>
               </div>
-                <h2><%= user.name %> </h2>
-                <div>自己紹介</div>
-                <div><%= user.introduction %></div>
+              <div class="box-text">
+                <div class="follow-name">
+                  <%= user.name %>
+                </div>
+                <div class="follow-introduction">
+                  <%= user.introduction %>
+                </div>
+              </div>
           </div>
         </div>
       </div>

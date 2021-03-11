@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'guide/index'
   get 'notifications/index'
   get 'sessions/new'
   get 'magics/index'
@@ -10,6 +9,7 @@ Rails.application.routes.draw do
   get 'duelmasters/new'
   get 'pages/index'
   root 'pages#index'
+
 
   resources :users do
     member do
@@ -31,4 +31,5 @@ Rails.application.routes.draw do
   resources :yugiohs
   resources :pokemons
   resources :magics
+  resources :notifications, only: :index
 end

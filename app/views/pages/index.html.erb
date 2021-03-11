@@ -1,8 +1,8 @@
     <div class="content">
       <div class="slide-image">
-        <div class="s-img"><%= image_tag 'images/tree.png',class:"c" %></div>
-        <div class="s-img"><%= image_tag 'images/tree.png',class:"c" %></div>
-        <div class="s-img"><%= image_tag 'images/tree.png',class:"c" %></div>
+        <div class="s-img"><%= image_tag 'images/tree.png',class:"slide" %></div>
+        <div class="s-img"><%= image_tag 'images/tree.png',class:"slide" %></div>
+        <div class="s-img"><%= image_tag 'images/tree.png',class:"slide" %></div>
       </div>
       
     <div class="games">ゲームカテゴリー</div>
@@ -36,6 +36,8 @@
             <%= link_to user_path(user) do %>
               <% if user.image? %>
                 <%= image_tag user.image.url,class:"icon-image" %>
+              <% else %>
+                <%=image_tag"default.png",class:"icon-image" %>
               <% end %>
             <% end %>
               <div class="user-post-name">
@@ -47,18 +49,15 @@
               </div> 
               <div class="user-post-description">
                 得意なゲーム
+                <div>
                 <%= user.category %>
+                </div> 
               </div> 
-
           </div>  
         <% end %>
       </div>
     </div>
-
-  <div class="paly-guide">
-    <div class="play-guide-title">遊び方</div>
-    <%= link_to "対戦方法",'/guide/index' %>
-  </div>
+    
 
    <script>
       $(function() {

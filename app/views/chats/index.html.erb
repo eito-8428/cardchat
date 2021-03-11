@@ -1,0 +1,22 @@
+<div class="dm-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="topic-index-single">
+          <div class="dm-content">
+            <% @anotherEntries.each do |e| %>
+              <%= link_to chat_path(e.chat.id) do %>
+                <% if e.user.image? %>
+                  <%=image_tag e.user.image.url,class:"dm-image" %>
+                <% else %>
+                  <%=image_tag"default.png",class:"dm-image" %>
+                <% end %>
+              <%= e.user.name %>さんとのDM<br>
+            <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

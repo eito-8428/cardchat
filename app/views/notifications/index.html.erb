@@ -1,7 +1,7 @@
-<div class="games">
-<% notifications = @notifications.where.not(visitor_id: current_user.id) %>
-<% if notifications.exists? %>
-    <%= render notifications %>
+<div class="community-content">
+
+<% if @notifications.exists? %>
+    <%= render @notifications %>
 <% else %>
     <p>通知はございません</p>
 <% end %>

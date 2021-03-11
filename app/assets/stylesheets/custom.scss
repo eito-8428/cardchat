@@ -104,28 +104,7 @@ h1, h2 {
       color: #fff;
     }
   }
-  
-  .top-hero-wrapper {
-    width: 100vw;
-    height: 100vh;
-    background-image: url('images/space.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-color: #464646;
-  }
-  
-  .top-hero-container {
-    padding-top: 220px;
-    h1 {
-      margin-bottom: 20px;
-    }
-  
-    h2 {
-      margin-bottom: 60px;
-    }
-  }
+
   .form-control {
     height: 45px;
   }
@@ -164,7 +143,7 @@ h1, h2 {
     }
   }
   
-  .c{
+  .slide{
     height: 450px;
     width : 100%;
   }
@@ -269,18 +248,33 @@ h1, h2 {
 
 .user-post-name{
   font-size: 20px;
-margin-left: 20px;
+  margin-left: 20px;
 }
+
+
+.user-post-schedule{
+  margin-left: 40px;
+  margin-bottom: 5px;
+}
+
 .user-post-time{
   margin-left: 40px;
   margin-bottom: 5px;
 }
 
-.user-post-description{
-  margin-left: 40px;
-  margin-bottom: 10px;
+.user-post-description{  
+  margin-left: 20px;
+  margin-bottom: 10px; }
+
+.far {
+  float: right;
+  margin-right: 10px;
 }
 
+.new-post {
+  margin-left: 200px;
+}
+ 
 
 
 .current_user {
@@ -312,3 +306,37 @@ margin-left: 20px;
   box-sizing: border-box;
   padding: 10px;
 }
+
+.follow-content {
+  padding-top: 80px
+}
+.follow-image {
+  border-radius: 50%;
+  height: 70px;
+  width: 70px; 
+}
+.follow-content,
+.box-text{
+  display: inline-block;
+  vertical-align: bottom;
+}
+.follow-name{
+  margin-left: 5px;
+  font-size: 25px;
+}
+.follow-introduction {
+  font-size: 15px;
+  margin-left: 15px;
+}
+
+// dmcss
+.dm-content {
+  padding-top: 80px
+}
+
+.dm-image {
+  border-radius: 50%;
+  height: 70px;
+  width: 70px; 
+}
+
